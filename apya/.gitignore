@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/apya_sanity/node_modules
 # testing
 /coverage
 
