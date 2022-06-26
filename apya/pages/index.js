@@ -2,6 +2,7 @@ import React from 'react';
 
 import { client } from '../lib/client';
 import { Product, FooterBanner, HeroBanner } from '../components';
+import HomePage from './homepage/Homepage.component';
 
 const Home = ({ products, bannerData }) => (
   <div>
@@ -10,7 +11,7 @@ const Home = ({ products, bannerData }) => (
       <h2>Best Seller Products</h2>
       <p>speaker There are many variations passages</p>
     </div>
-
+    <HomePage></HomePage>
     <div className="products-container">
       {products?.map((product) => (
         <Product key={product._id} product={product} />
