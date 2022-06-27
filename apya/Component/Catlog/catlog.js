@@ -86,10 +86,12 @@ export const Catlog = ({ catlogData }) => {
   }
   return (
     <>
-      <div className="bg-businessbackground" id="BusinessVerticles">
+      <div id="BusinessVerticles">
         {catlogData.map((data) => (
           <div className="u-center-text u-margin-bottom-small">
-            <h2 class="heading-secondary">{data.name}</h2>
+            <h2 class="heading-secondary" id={`scroll-${data.name}`}>
+              {data.name}
+            </h2>
             {/* {returnView(data.products)} */}
             <Swiper
               slidesPerView={isDesktop ? 5 : 1}

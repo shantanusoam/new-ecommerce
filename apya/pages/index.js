@@ -5,7 +5,8 @@ import { Product, FooterBanner, HeroBanner } from '../components';
 import HomePage from './homepage/Homepage.component';
 import Footer from '../Component/Footer';
 import { Catlog } from '../Component/Catlog/catlog';
-
+import { urlFor } from '../lib/client';
+import { animateScroll as scroll, Link } from 'react-scroll';
 const Home = ({ products, bannerData, catlogData }) => (
   <div>
     <HeroBanner heroBanner={bannerData.length && bannerData} />
@@ -14,8 +15,34 @@ const Home = ({ products, bannerData, catlogData }) => (
       <p>speaker There are many variations passages</p>
     </div>
     <div className="products-container">
-      {products?.map((product) => (
-        <Product key={product._id} product={product} />
+      {catlogData?.map((product) => (
+        <div className="Category-Card">
+          <Link
+            to={`scroll-${product.name}`}
+            smooth={true}
+            duration={1000}
+            spy={true}
+            exact={true}
+          >
+            {product.imageUrl ? (
+              <img
+                className="Category-Card__Image"
+                src={product.imageUrl}
+                width={250}
+                height={250}
+              ></img>
+            ) : (
+              <img
+                className="Category-Card__Image"
+                src={urlFor(product.image && product.image[0])}
+                width={250}
+                height={250}
+                className="product-image"
+              />
+            )}
+            <div className="Category-Card__heading">{product.name}</div>
+          </Link>
+        </div>
       ))}
     </div>
 
@@ -43,8 +70,11 @@ export const getServerSideProps = async () => {
   const bannerQuery = '*[_type == "banner"]';
   const bannerData = await client.fetch(bannerQuery);
   const catlogQuery = `*[_type == "catalog"]{
-    name,
+    image,
+    imageUrl,
+    Desc,
     
+        name,
         products[] {
     "product" : *[_type == "product" && _id == ^._ref]{
       _id,
