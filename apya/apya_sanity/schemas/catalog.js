@@ -8,8 +8,26 @@ export default {
   icon: GoFileSubmodule,
   fields: [
     {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      title: 'Image URL',
+      name: 'imageUrl',
+      type: 'url',
+    },
+    {
       name: 'name',
       title: 'Name',
+      type: 'string',
+    },
+    {
+      name: 'Desc',
+      title: 'Description',
       type: 'string',
     },
     {

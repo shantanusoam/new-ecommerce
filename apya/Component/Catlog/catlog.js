@@ -11,10 +11,12 @@ import 'swiper/css/navigation';
 
 import { Autoplay } from 'swiper';
 import { useHover } from '../../Hooks/Hover';
+import { client } from '../../lib/client';
+import { Product } from '../../components';
 // import { isDesktop, isTablet } from 'react-device-detect';
 
-export default function Catlog({ Catlogdata }) {
-  console.log(`dataaaaaaaaaaaaaaaaaa ${Catlogdata}`);
+export const Catlog = ({ catlogData }) => {
+  console.log(`dataaaaaaaaaaaaaaaaaa ${catlogData[0]}`);
   const [hoverRef, isHovered] = useHover();
   const isDesktop = useMediaQuery('(min-width: 780px)');
   //   const isTablet = useMediaQuery('(min-width: 780px)');
@@ -25,38 +27,34 @@ export default function Catlog({ Catlogdata }) {
   //     to: [{ transform: 'translateY(15px)' }],
   //     config: { mass: 3, tension: 500, friction: 25 },
   //   });
-  function returnView() {
+
+  function returnView(products) {
+    console.log(products);
     if (isDesktop) {
-      return mydata.thebox.map((element) => (
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          // centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay]}
-          className="mySwiper"
-        >
-          {mydata.thebox.map((element) => (
-            <SwiperSlide>
-              <a
-                target="_blank"
-                href={element.url}
-                className={` flex-1 h-80 itemM  transition-all delay-75 bg-cover bg-no-repeat bg-center `}
-                style={{
-                  backgroundImage: `url(${element.Simg})`,
-                }}
-              ></a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ));
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        // centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        className="mySwiper"
+      >
+        {products.map((element) => (
+          <SwiperSlide>
+            <Product
+              key={element.product[0]._id}
+              product={element.product[0]}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>;
     } else {
       return (
         <Swiper
@@ -74,16 +72,12 @@ export default function Catlog({ Catlogdata }) {
           modules={[Autoplay]}
           className="mySwiper"
         >
-          {mydata.thebox.map((element) => (
+          {products.map((element) => (
             <SwiperSlide>
-              <a
-                target="_blank"
-                href={element.url}
-                className={`demo itemM  bg-contain bg-no-repeat bg-left h-full flex-1`}
-                style={{
-                  backgroundImage: `url(${element.Simg})`,
-                }}
-              ></a>
+              <Product
+                key={element.product[0]._id}
+                product={element.product[0]}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -93,15 +87,41 @@ export default function Catlog({ Catlogdata }) {
   return (
     <>
       <div className="bg-businessbackground" id="BusinessVerticles">
-        <div className="u-center-text u-margin-bottom-big">
-          {/* {Catlogdata.map((data, index) => {
-            <h2 class="heading-secondary">{data.name}</h2>;
-          })} */}
-        </div>
-        <div className="row">
-          {/* <div class="col-1-of-3">{returnView()}</div> */}
-        </div>
+        {catlogData.map((data) => (
+          <div className="u-center-text u-margin-bottom-small">
+            <h2 class="heading-secondary">{data.name}</h2>
+            {/* {returnView(data.products)} */}
+            <Swiper
+              slidesPerView={isDesktop ? 5 : 1}
+              freeMode={true}
+              mousewheelControl={true}
+              followFinger={true}
+              spaceBetween={20}
+              loop={true}
+              pagination={{
+                clickable: true,
+              }}
+              centeredSlides={true}
+              autoplay={{
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
+              {data.products.map((element) => (
+                <SwiperSlide>
+                  <div className="SliderBox">
+                    <Product
+                      key={element.product[0]._id}
+                      product={element.product[0]}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ))}
       </div>
     </>
   );
-}
+};
