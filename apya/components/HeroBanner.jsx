@@ -2,28 +2,57 @@ import React from 'react';
 import Link from 'next/link';
 
 import { urlFor } from '../lib/client';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-const HeroBanner = ({ heroBanner }) => {
+import { Autoplay } from 'swiper';
+const heroBanner = ({ heroBanner }) => {
   return (
-    <div className="hero-banner-container">
-      <div>
-        <p className="beats-solo">{heroBanner.smallText}</p>
-        <h3>{heroBanner.midText}</h3>
-        <h1>{heroBanner.largeText1}</h1>
-        <img src={urlFor(heroBanner.image)} alt="headphones" className="hero-banner-image" />
+    <Swiper
+      slidesPerView={1}
+      spaceBetween={10}
+      loop={true}
+      pagination={{
+        clickable: true,
+      }}
+      // centeredSlides={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      modules={[Autoplay]}
+      className="mySwiper"
+    >
+      {heroBanner.map((element) => (
+        <SwiperSlide key={element._id}>
+          <div className="hero-banner-container">
+            <div>
+              <p className="beats-solo">{element.smallText}</p>
+              <h3>{element.midText}</h3>
+              <h1>{element.largeText1}</h1>
+              <img
+                src={urlFor(element.image)}
+                alt="headphones"
+                className="hero-banner-image"
+              />
 
-        <div>
-          <Link href={`/product/${heroBanner.product}`}>
-            <button type="button">{heroBanner.buttonText}</button>
-          </Link>
-          <div className="desc">
-            <h5>Description</h5>
-            <p>{heroBanner.desc}</p>
+              <div>
+                <Link href={`/product/${element.product}`}>
+                  <button type="button">{element.buttonText}</button>
+                </Link>
+                <div className="desc">
+                  <h5>Description</h5>
+                  <p>{element.desc}</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};
 
-export default HeroBanner
+export default heroBanner;

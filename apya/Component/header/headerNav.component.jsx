@@ -48,7 +48,11 @@ const HeaderNav = ({ currentUser, hidden, ishome, ...otherProps }) => (
 
       <li class="logo">
         {/* <Logo></Logo> */}
-        <img src="img/APYA.png" alt="Logo" class="header__logo" />
+        <img
+          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/logo.png"
+          alt="Logo"
+          class="header__logo"
+        />
       </li>
       {/* <li class="Push"><Link to="/shop">sell</Link></li> */}
       <li class="Push">

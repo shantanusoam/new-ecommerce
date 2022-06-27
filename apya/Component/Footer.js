@@ -6,7 +6,12 @@ const Footer = () => {
   return (
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/APYA.png" alt="Full logo" class="footer__logo" />
+        <img
+          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/logo.png"
+          alt="Full logo"
+          
+          class="footer__logo"
+        />
       </div>
       <div class="row">
         <div class="col-1-of-2">

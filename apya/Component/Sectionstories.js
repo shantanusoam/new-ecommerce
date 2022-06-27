@@ -20,7 +20,7 @@ const Sectionstories = () => {
         <div class="story">
           <figure class="story__shape">
             <img
-              src="img/volley.png"
+              src="https://cdn.britannica.com/63/211663-050-A674D74C/Jonny-Bairstow-batting-semifinal-match-England-Australia-2019.jpg"
               alt="Person on a tour"
               class="story__img"
             />

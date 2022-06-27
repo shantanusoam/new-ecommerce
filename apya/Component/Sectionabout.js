@@ -36,17 +36,17 @@ const sectionAbout = () => {
         <div class="col-1-of-2">
           <div class="composition">
             <img
-              src="img/uwp478489.jpeg"
+              src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/uwp478489.jpeg"
               alt="Photo 1"
               class="composition__photo composition__photo--p1"
             />
             <img
-              src="img/uwp478478.jpeg"
+              src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/uwp478482.jpeg"
               alt="Photo 2"
               class="composition__photo composition__photo--p2"
             />
             <img
-              src="img/football.png"
+              src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/uwp478478.jpeg"
               alt="Photo 3"
               class="composition__photo composition__photo--p3"
             />

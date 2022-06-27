@@ -7,8 +7,16 @@ const Popup = () => {
     <div class="popup" id="popup">
       <div class="popup__content">
         <div class="popup__left">
-          <img src="img/basketball.png" alt="Tour photo" class="popup__img" />
-          <img src="img/rugby.png" alt="Tour photo" class="popup__img" />
+          <img
+            src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/football.jpg"
+            alt="Tour photo"
+            class="popup__img"
+          />
+          <img
+            src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/54%20(7).png"
+            alt="Tour photo"
+            class="popup__img"
+          />
         </div>
         <div class="popup__right">
           <a href="#section-tours" class="popup__close">

@@ -6,7 +6,11 @@ const Header = () => {
   return (
     <header class="header">
       <div class="header__logo-box">
-        <img src="img/APYA.png" alt="Logo" class="header__logo" />
+        <img
+          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/logo.png"
+          alt="Logo"
+          class="header__logo"
+        />
       </div>
 
       <div class="header__text-box">
