@@ -171,7 +171,15 @@
   &__price-box {
     text-align: center;
     color: $color-white;
+    position: relative;
     margin-bottom: 8rem;
+    img {
+      left: -0;
+      top: 0;
+      margin-top: -200px;
+      margin-right: 200px;
+      position: absolute;
+    }
   }
 
   &__price-only {

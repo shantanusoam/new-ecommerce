@@ -16,7 +16,7 @@ const SectionTours = () => {
               <div class="card__picture card__picture--1">&nbsp;</div>
               <h4 class="card__heading">
                 <span class="card__heading-span card__heading-span--1">
-                  The Sea Explorer
+                  Cricket
                 </span>
               </h4>
               <div class="card__details">
@@ -49,7 +49,7 @@ const SectionTours = () => {
               <div class="card__picture card__picture--2">&nbsp;</div>
               <h4 class="card__heading">
                 <span class="card__heading-span card__heading-span--2">
-                  The Forest Hiker
+                  Football
                 </span>
               </h4>
               <div class="card__details">
@@ -66,7 +66,12 @@ const SectionTours = () => {
               <div class="card__cta">
                 <div class="card__price-box">
                   <p class="card__price-only">Only</p>
+
                   <p class="card__price-value">$497</p>
+                  <img
+                    src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/Front%20(81).png"
+                    width={500}
+                  ></img>
                 </div>
                 <a href="#popup" class="btn btn--white">
                   Book now!
@@ -82,7 +87,7 @@ const SectionTours = () => {
               <div class="card__picture card__picture--3">&nbsp;</div>
               <h4 class="card__heading">
                 <span class="card__heading-span card__heading-span--3">
-                  The Snow Adventurer
+                  Volleyball
                 </span>
               </h4>
               <div class="card__details">

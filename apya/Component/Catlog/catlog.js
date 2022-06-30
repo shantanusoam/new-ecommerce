@@ -51,6 +51,7 @@ export const Catlog = ({ catlogData }) => {
             <Product
               key={element.product[0]._id}
               product={element.product[0]}
+              products={products}
             />
           </SwiperSlide>
         ))}
@@ -77,6 +78,7 @@ export const Catlog = ({ catlogData }) => {
               <Product
                 key={element.product[0]._id}
                 product={element.product[0]}
+                products={products}
               />
             </SwiperSlide>
           ))}
@@ -116,6 +118,7 @@ export const Catlog = ({ catlogData }) => {
                     <Product
                       key={element.product[0]._id}
                       product={element.product[0]}
+                      products={data.products}
                     />
                   </div>
                 </SwiperSlide>
