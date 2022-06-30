@@ -1,78 +1,54 @@
-import react from 'react';
-import { createStructuredSelector } from 'reselect';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { auth } from '../../firebase/firebase.util';
-import './headerNav.style.scss';
-import { ReactComponent as Logo } from '../../assets/4.1 crown.svg';
-import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
-import { selectCurrentUser } from '../../redux/user/user.selector';
-import { selectCartHidden } from '../../redux/cart/cart.selector';
+import React from 'react';
 
-const HeaderNav = ({ currentUser, hidden, ishome, ...otherProps }) => (
+const HeaderNav = ({ ishome }) => (
   /* <div className="header">
-<Link to="/" className="logo-container">
+<a href="/" className="logo-container">
 <Logo className="logo"/>
-</Link>
+</a>
 <div className="options">
-<Link className="option" to='/shop'>
+<a className="option" href='/shop'>
     SHOP
-</Link>
-<Link className="option" to='/shop'>
+</a>
+<a className="option" href='/shop'>
     CONTACT
-</Link>
+</a>
 </div>
 </div> */
-  <nav
-    to="/"
-    className={`${ishome ? 'ishome' : ''}  navbarcontainer`}
-    {...otherProps}
-  >
-    <ul
-      className={`${ishome ? 'ishome' : ''}  navbarcontainer_nav`}
-      {...otherProps}
-    >
+  <nav href="/" className={`${ishome ? 'ishome' : ''}  navbarcontainer`}>
+    <ul className={`${ishome ? 'ishome' : ''}  navbarcontainer_nav`}>
       <li>
-        <Link to="/">Home</Link>
+        <a href="/">Home</a>
       </li>
       <li>
-        <Link to="/">Company</Link>
+        <a href="/">Company</a>
       </li>
       <li>
-        <Link to="/shop">Shop</Link>
+        <a href="/shop">Shop</a>
       </li>
       <li>
-        <Link to="/">Safety</Link>
+        <a href="/">Safety</a>
       </li>
 
       <li class="logo">
         {/* <Logo></Logo> */}
         <img
-          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/logo.png"
+          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/APYA.png"
           alt="Logo"
           class="header__logo"
         />
       </li>
-      {/* <li class="Push"><Link to="/shop">sell</Link></li> */}
-      <li class="Push">
-        <Link to="/shop">
-          {currentUser ? (
-            <div onClick={() => auth.signOut()}>SIGN OUT</div>
-          ) : (
-            <Link to="/signin">SIGN IN</Link>
-          )}
-        </Link>
-      </li>
+      {/* <li class="Push"><a href="/shop">sell</a></li> */}
+      {/* <li class="Push">
+        <a href="/shop">
+       
+            <a href="/signin">SIGN IN</a>
+       
+        </a>
+      </li> */}
       <li>{/* <CartIcon /> */}</li>
     </ul>
     {/* {hidden ? null : <CartDropdown />} */}
   </nav>
 );
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  hidden: selectCartHidden,
-});
-
-export default connect(mapStateToProps)(HeaderNav);
+export default HeaderNav;

@@ -7,16 +7,20 @@ import Footer from '../Component/Footer';
 import { Catlog } from '../Component/Catlog/catlog';
 import { urlFor } from '../lib/client';
 import { animateScroll as scroll, Link } from 'react-scroll';
+import SectionFeatures from '../Component/SectionFeatures';
+import Header from '../Component/Header';
 const Home = ({ products, bannerData, catlogData }) => (
   <div>
+    <Header />
     <HeroBanner heroBanner={bannerData.length && bannerData} />
     <div className="products-heading">
       <h2>Best Seller Products</h2>
       <p>speaker There are many variations passages</p>
     </div>
-    <div className="products-container">
+    {/* <SectionFeatures></SectionFeatures> */}
+    <div className="products-container section-features">
       {catlogData?.map((product) => (
-        <div className="Category-Card">
+        <div className="Category-Card feature-box ">
           <Link
             to={`scroll-${product.name}`}
             smooth={true}
@@ -26,7 +30,7 @@ const Home = ({ products, bannerData, catlogData }) => (
           >
             {product.imageUrl ? (
               <img
-                className="Category-Card__Image"
+                className="Category-Card__Image feature-box__icon "
                 src={product.imageUrl}
                 width={250}
                 height={250}

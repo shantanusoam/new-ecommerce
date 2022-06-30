@@ -15,7 +15,7 @@ const Main = () => {
     <main>
       <SectionTours></SectionTours>
 
-      <SectionFeatures></SectionFeatures>
+      {/* <SectionFeatures></SectionFeatures> */}
 
       {/* <Directory /> */}
       <SectionAbout></SectionAbout>

@@ -10,17 +10,13 @@ const Layout = ({ children }) => {
       <Head>
         <title>JS Mastery Store</title>
       </Head>
-      <header>
-        <Navbar />
-      </header>
-      <main className="main-container">
-        {children}
-      </main>
+      <header>{/* <Navbar /> */}</header>
+      <main className="main-container">{children}</main>
       <footer>
         <Footer />
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

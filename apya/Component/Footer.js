@@ -7,9 +7,8 @@ const Footer = () => {
     <footer class="footer">
       <div class="footer__logo-box">
         <img
-          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/logo.png"
+          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/APYA.png"
           alt="Full logo"
-          
           class="footer__logo"
         />
       </div>

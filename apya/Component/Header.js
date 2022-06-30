@@ -7,7 +7,7 @@ const Header = () => {
     <header class="header">
       <div class="header__logo-box">
         <img
-          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/logo.png"
+          src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/APYA.png"
           alt="Logo"
           class="header__logo"
         />
