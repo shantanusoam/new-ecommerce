@@ -14,7 +14,7 @@ const Navbar = () => {
         <Link href="/">
           <img
             src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/APYA.png"
-            height={80}
+            height={10}
             alt=""
           ></img>
         </Link>

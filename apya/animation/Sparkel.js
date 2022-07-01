@@ -1,7 +1,7 @@
-import { random } from '../HelpFunctions/random';
+import { random } from '../helper/random';
 import styled, { keyframes } from 'styled-components';
 import { usePrefersReducedMotion } from '../Hooks/usePreferedRedcedMotion';
-import { range } from '../HelpFunctions/range';
+import { range } from '../helper/range';
 import React from 'react';
 import { useRandomInterval } from '../Hooks/useRandomInterval';
 const comeInOut = keyframes`

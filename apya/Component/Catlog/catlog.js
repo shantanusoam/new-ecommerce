@@ -13,6 +13,7 @@ import { Autoplay } from 'swiper';
 import { useHover } from '../../Hooks/Hover';
 import { client } from '../../lib/client';
 import { Product } from '../../components';
+import Sparkles from '../../animation/Sparkel';
 // import { isDesktop, isTablet } from 'react-device-detect';
 
 export const Catlog = ({ catlogData }) => {
@@ -92,8 +93,9 @@ export const Catlog = ({ catlogData }) => {
         {catlogData.map((data) => (
           <div className="u-center-text u-margin-bottom-small">
             <h2 class="heading-secondary" id={`scroll-${data.name}`}>
-              {data.name}
+              <Sparkles>{data.name}</Sparkles>
             </h2>
+
             {/* {returnView(data.products)} */}
             <Swiper
               slidesPerView={isDesktop ? 5 : 1}
@@ -118,7 +120,7 @@ export const Catlog = ({ catlogData }) => {
                     <Product
                       key={element.product[0]._id}
                       product={element.product[0]}
-                      products={data.products}
+                      products={data.name}
                     />
                   </div>
                 </SwiperSlide>

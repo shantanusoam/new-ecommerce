@@ -9,6 +9,7 @@ import { urlFor } from '../lib/client';
 import { animateScroll as scroll, Link } from 'react-scroll';
 import SectionFeatures from '../Component/SectionFeatures';
 import Header from '../Component/Header';
+import Sparkles from '../animation/Sparkel';
 const Home = ({ products, bannerData, catlogData }) => (
   <div>
     <Header />
@@ -52,10 +53,12 @@ const Home = ({ products, bannerData, catlogData }) => (
 
     <Catlog catlogData={catlogData.length && catlogData}></Catlog>
 
-    <HomePage></HomePage>
+    {/* <HomePage></HomePage> */}
     <div className="products-heading">
-      <h2>Best Seller Products</h2>
-      <p>speaker There are many variations passages</p>
+      <Sparkles>
+        <h2>Best Seller Products</h2>
+        <p>speaker There are many variations passages</p>
+      </Sparkles>
     </div>
     <div className="products-container">
       {products?.map((product) => (
@@ -80,13 +83,13 @@ export const getServerSideProps = async () => {
     
         name,
         products[] {
-    "product" : *[_type == "product" && _id == ^._ref]{
-      _id,
-    details,
-    image,
-    details,
-    name,
-    price,
+        "product" : *[_type == "product" && _id == ^._ref]{
+          _id,
+        details,
+       image,
+       details,
+         name,
+       price,
     slug,
     }
       }

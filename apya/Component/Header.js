@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 
+import { animateScroll as scroll, Link } from 'react-scroll';
 import { urlFor } from '../lib/client';
 const Header = () => {
   return (
@@ -19,9 +19,16 @@ const Header = () => {
           <span class="heading-primary--sub">SERVE THE PURPOSE</span>
         </h1>
 
-        <a href="#section-tours" class="btn btn--white btn--animated">
+        <Link
+          to="section-tours"
+          smooth={true}
+          duration={1000}
+          spy={true}
+          exact={true}
+          class="btn btn--white btn--animated"
+        >
           Discover
-        </a>
+        </Link>
       </div>
     </header>
   );

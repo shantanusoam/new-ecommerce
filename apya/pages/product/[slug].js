@@ -10,7 +10,7 @@ import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
-const ProductDetails = ({ product, products }) => {
+const ProductDetails = ({ product, products, catlog }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
@@ -86,6 +86,13 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
       </div>
+      {catlog[0] ? (
+        <div className="products-container ">
+          {catlog[0].products.map((item) => (
+            <Product key={item.product[0]._id} product={item.product[0]} />
+          ))}
+        </div>
+      ) : null}
 
       <div className="maylike-products-wrapper">
         <h2>You may also like</h2>
@@ -122,18 +129,45 @@ export const getStaticPaths = async () => {
     fallback: 'blocking',
   };
 };
-
+function ProductsQueryExtracter(data, catlog) {
+  var productSlug = data.substring(0, 4).toLowerCase();
+  for (var i = 0; i < catlog.length; i++) {
+    if (catlog[i].name.substring(0, 4).toLowerCase() == productSlug) {
+      return catlog[i].name;
+    }
+  }
+}
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
   const productsQuery = '*[_type == "product"]';
+  const catlogNameQuery = `*[_type == "catalog"]{  
+        name,
+    }`;
+  const catlogNames = await client.fetch(catlogNameQuery);
 
+  var ProductName = ProductsQueryExtracter(slug, catlogNames);
+
+  const catlogQuery = `*[_type == "catalog" && name == '${ProductName}']{  
+    products[] {
+    "product" : *[_type == "product" && _id == ^._ref]{
+      _id,
+    details,
+   image,
+   details,
+     name,
+     price,
+   slug,
+   }
+  }
+}`;
+  const catlog = await client.fetch(catlogQuery);
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
 
   console.log(product);
 
   return {
-    props: { products, product },
+    props: { products, product, catlog },
   };
 };
 
