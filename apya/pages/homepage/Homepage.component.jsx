@@ -12,8 +12,8 @@ const HomePage = () => (
   <div className="homepage">
     {/* <HeaderNav ishome /> */}
     <Navigation />
-    <Navbar></Navbar>
-    <Header />
+    {/* <Navbar></Navbar> */}
+    {/* <Header /> */}
 
     <Main />
     {/* 

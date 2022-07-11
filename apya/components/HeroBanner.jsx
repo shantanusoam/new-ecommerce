@@ -29,14 +29,19 @@ const heroBanner = ({ heroBanner }) => {
         <SwiperSlide key={element._id}>
           <div className="hero-banner-container">
             <div>
-              <p className="beats-solo">{element.smallText}</p>
-              <h3>{element.midText}</h3>
-              <h1>{element.largeText1}</h1>
-              <img
-                src={urlFor(element.image)}
-                alt="headphones"
-                className="hero-banner-image"
-              />
+              <div className="Header__Slider-dataImage">
+                <div>
+                  <p className="beats-solo">{element.smallText}</p>
+                  <h3>{element.midText}</h3>
+                  <h1>{element.largeText1}</h1>
+                </div>
+
+                <img
+                  src={urlFor(element.image)}
+                  alt="headphones"
+                  className="hero-banner-image"
+                />
+              </div>
 
               <div>
                 <Link href={`/product/${element.product}`}>

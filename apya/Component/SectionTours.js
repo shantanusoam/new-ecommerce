@@ -5,7 +5,7 @@ import { urlFor } from '../lib/client';
 const SectionTours = () => {
   return (
     <section class="section-tours" id="section-tours">
-      <div class="u-center-text u-margin-bottom-big">
+      <div class="u-center-text ">
         <h2 class="heading-secondary">Most Recent</h2>
       </div>
 
@@ -68,10 +68,10 @@ const SectionTours = () => {
                   <p class="card__price-only">Only</p>
 
                   <p class="card__price-value">$497</p>
-                  <img
+                  {/* <img
                     src="https://raw.githubusercontent.com/shantanusoam/new-ecommerce/main/apya/Images/Front%20(81).png"
                     width={500}
-                  ></img>
+                  ></img> */}
                 </div>
                 <a href="#popup" class="btn btn--white">
                   Book now!

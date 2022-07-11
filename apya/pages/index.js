@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { FaWhatsapp } from 'react-icons/fa';
 import { client } from '../lib/client';
 import { Product, FooterBanner, HeroBanner } from '../components';
 import HomePage from './homepage/Homepage.component';
@@ -53,7 +53,7 @@ const Home = ({ products, bannerData, catlogData }) => (
 
     <Catlog catlogData={catlogData.length && catlogData}></Catlog>
 
-    {/* <HomePage></HomePage> */}
+    <HomePage></HomePage>
     <div className="products-heading">
       <Sparkles>
         <h2>Best Seller Products</h2>
@@ -65,7 +65,13 @@ const Home = ({ products, bannerData, catlogData }) => (
         <Product key={product._id} product={product} />
       ))}
     </div>
-    <Footer />
+    <a
+      href="https://api.whatsapp.com/send?phone=919150888833&text=Hello Questions for information about the query"
+      class="float"
+      target="_blank"
+    >
+      <FaWhatsapp class="fa fa-whatsapp my-float"></FaWhatsapp>
+    </a>
     {/* <FooterBanner footerBanner={bannerData && bannerData[0]} /> */}
   </div>
 );

@@ -1,5 +1,7 @@
 .footer {
+  margin-top: 5rem;
   background-color: $color-grey-dark-3;
+  height: 50vh;
   padding: 5rem 0;
   font-size: 1.4rem;
   color: $color-grey-light-1;
@@ -28,6 +30,8 @@
 
   &__list {
     list-style: none;
+    display: flex;
+    flex-direction: column;
   }
 
   &__item {

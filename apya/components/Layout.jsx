@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+import FooterAp from '../Component/Footer';
 
 const Layout = ({ children }) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
       </header>
       <main className="main-container">{children}</main>
       <footer>
+        <FooterAp></FooterAp>
         <Footer />
       </footer>
     </div>
