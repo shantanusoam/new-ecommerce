@@ -114,17 +114,19 @@ export const Catlog = ({ catlogData }) => {
               modules={[Autoplay]}
               className="mySwiper"
             >
-              {data.products.map((element) => (
-                <SwiperSlide>
-                  <div className="SliderBox">
-                    <Product
-                      key={element.product[0]._id}
-                      product={element.product[0]}
-                      products={data.name}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
+              {data.products
+                ? data.products.map((element) => (
+                    <SwiperSlide>
+                      <div className="SliderBox">
+                        <Product
+                          key={element.product[0]._id}
+                          product={element.product[0]}
+                          products={data.name}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))
+                : null}
             </Swiper>
           </div>
         ))}
